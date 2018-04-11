@@ -1,6 +1,8 @@
 package model;
 
 import android.database.Observable;
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,661 +11,667 @@ import java.util.ArrayList;
  * Created by hechao on 12/4/13.
  */
 @SuppressWarnings("serial")
-public class MemberOrderListBean extends Observable implements Serializable {
-
-	private int currentPage;
-	private int totalPages;
-	private int pageSize;
-	public ArrayList<OrderBean> userOrders;
-
-	public static class OrderBean implements Serializable {
-		// 0隐藏 1显示
-		public String canTH, canHH;//
-		public String aliasCode;// 外部订单号
-		public String orderId; // 内部订单号
-		public String paySerialNumber;// 第三方支付订单流水号
-		public String createTime, acceptName, order_states, needPay, givePoints, orderStateId, despatchOrderNo;
-		public String deliveryerNameCh, deliveryerNameEn, deliveryUrl, payModeId, emoneyPay, totalPay, orderAmt;
-		public String orderTime, mobilePhone, address, orderSign, merchantId, fare;
-		public String couponPay;// 优惠金额总计
-		public String productAmt;// 商品金额总计
-		public String isSign;// 是否已签收
-		public int delaySignCount;// 延时签收次数。最大为1.表示延迟10天。0为未延时签收
-		public String shipmentDate;// 发货日期
-		public ArrayList<PayInfo> payInfoList;
-		public ArrayList<OrderProduct> orderProducts;
-		public ArrayList<Delivery> deliveryList;
-		public int isFlag;// 是否整单售后1能0不能
-		public int isPart;// 能否整单售后
-		public int gold;// 0不是金币订单 1是金币订单
-		public int customerServiceState;// 是否可以售后 1可以 2不可以
-		public int moneyBackState;// 是否可以退款 1可以 不可以
-		public int discountCouponState;// 是否使用优惠券
-		public ArrayList<applyOrderItems> applyOrderItems;// 售后信息集合
-		public String area;// 收货地区名称；
-		public String areaPath;// 收货地区path
-		private int orderType; //34礼包订单
-
-		public int getOrderType() {
-			return orderType;
-		}
-
-		public void setOrderType(int orderType) {
-			this.orderType = orderType;
-
-		}
-
-		public String getCanTH() {
-			return canTH;
-		}
-
-		public void setCanTH(String canTH) {
-			this.canTH = canTH;
-		}
-
-		public String getCanHH() {
-			return canHH;
-		}
-
-		public void setCanHH(String canHH) {
-			this.canHH = canHH;
-		}
-
-		public String getArea() {
-			return area;
-		}
-
-		public void setArea(String area) {
-			this.area = area;
-		}
-
-		public String getAreaPath() {
-			return areaPath;
-		}
-
-		public void setAreaPath(String areaPath) {
-			this.areaPath = areaPath;
-		}
-
-		public int getIsPart() {
-			return isPart;
-		}
-
-		public void setIsPart(int isPart) {
-			this.isPart = isPart;
-		}
-
-		public ArrayList<applyOrderItems> getApplyOrderItems() {
-			return applyOrderItems;
-		}
-
-		public void setApplyOrderItems(ArrayList<applyOrderItems> applyOrderItems) {
-			this.applyOrderItems = applyOrderItems;
-		}
-
-		public static class applyOrderItems implements Serializable {
-			private String checkAmount;// 选择的个数
-			private int applyId;
-			private String applyName;
-			private int applyIsPresent;
-			private int applyAmount;
-			private int applyObjId;
-			private String applyImgPath;// 图片链接
-
-			public String getCheckAmount() {
-				return checkAmount;
-			}
+public class MemberOrderListBean extends BaseObservable implements Serializable {
+
+    private int currentPage;
+    private int totalPages;
+    private int pageSize;
+    public ArrayList<OrderBean> userOrders;
+
+    public static class OrderBean implements Serializable {
+        // 0隐藏 1显示
+        public String canTH, canHH;//
+        public String aliasCode;// 外部订单号
+        public String orderId; // 内部订单号
+        public String paySerialNumber;// 第三方支付订单流水号
+        public String createTime, acceptName, order_states, needPay, givePoints, orderStateId,
+				despatchOrderNo;
+        public String deliveryerNameCh, deliveryerNameEn, deliveryUrl, payModeId, emoneyPay,
+				totalPay, orderAmt;
+        public String orderTime, mobilePhone, address, orderSign, merchantId, fare;
+        public String couponPay;// 优惠金额总计
+        public String productAmt;// 商品金额总计
+        public String isSign;// 是否已签收
+        public int delaySignCount;// 延时签收次数。最大为1.表示延迟10天。0为未延时签收
+        public String shipmentDate;// 发货日期
+        public ArrayList<PayInfo> payInfoList;
+        public ArrayList<OrderProduct> orderProducts;
+        public ArrayList<Delivery> deliveryList;
+        public int isFlag;// 是否整单售后1能0不能
+        public int isPart;// 能否整单售后
+        public int gold;// 0不是金币订单 1是金币订单
+        public int customerServiceState;// 是否可以售后 1可以 2不可以
+        public int moneyBackState;// 是否可以退款 1可以 不可以
+        public int discountCouponState;// 是否使用优惠券
+        public ArrayList<applyOrderItems> applyOrderItems;// 售后信息集合
+        public String area;// 收货地区名称；
+        public String areaPath;// 收货地区path
+        private int orderType; //34礼包订单
+
+
+        public int getOrderType() {
+            return orderType;
+        }
+
+        public void setOrderType(int orderType) {
+            this.orderType = orderType;
+        }
+
+
+        public String getCanTH() {
+            return canTH;
+        }
+
+        public void setCanTH(String canTH) {
+            this.canTH = canTH;
+        }
+
+        public String getCanHH() {
+            return canHH;
+        }
+
+        public void setCanHH(String canHH) {
+            this.canHH = canHH;
+        }
+
+        public String getArea() {
+            return area;
+        }
+
+        public void setArea(String area) {
+            this.area = area;
+        }
+
+        public String getAreaPath() {
+            return areaPath;
+        }
+
+        public void setAreaPath(String areaPath) {
+            this.areaPath = areaPath;
+        }
+
+        public int getIsPart() {
+            return isPart;
+        }
+
+        public void setIsPart(int isPart) {
+            this.isPart = isPart;
+        }
+
+        public ArrayList<applyOrderItems> getApplyOrderItems() {
+            return applyOrderItems;
+        }
+
+        public void setApplyOrderItems(ArrayList<applyOrderItems> applyOrderItems) {
+            this.applyOrderItems = applyOrderItems;
+        }
+
+        public static class applyOrderItems implements Serializable {
+            private String checkAmount;// 选择的个数
+            private int applyId;
+            private String applyName;
+            private int applyIsPresent;
+            private int applyAmount;
+            private int applyObjId;
+            private String applyImgPath;// 图片链接
 
-			public void setCheckAmount(String checkAmount) {
-				this.checkAmount = checkAmount;
-			}
+            public String getCheckAmount() {
+                return checkAmount;
+            }
 
-			public int getApplyId() {
-				return applyId;
-			}
+            public void setCheckAmount(String checkAmount) {
+                this.checkAmount = checkAmount;
+            }
 
-			public void setApplyId(int applyId) {
-				this.applyId = applyId;
-			}
+            public int getApplyId() {
+                return applyId;
+            }
 
-			public String getApplyName() {
-				return applyName;
-			}
+            public void setApplyId(int applyId) {
+                this.applyId = applyId;
+            }
 
-			public void setApplyName(String applyName) {
-				this.applyName = applyName;
-			}
+            public String getApplyName() {
+                return applyName;
+            }
 
-			public int getApplyIsPresent() {
-				return applyIsPresent;
-			}
+            public void setApplyName(String applyName) {
+                this.applyName = applyName;
+            }
 
-			public void setApplyIsPresent(int applyIsPresent) {
-				this.applyIsPresent = applyIsPresent;
-			}
+            public int getApplyIsPresent() {
+                return applyIsPresent;
+            }
 
-			public int getApplyAmount() {
-				return applyAmount;
-			}
+            public void setApplyIsPresent(int applyIsPresent) {
+                this.applyIsPresent = applyIsPresent;
+            }
 
-			public void setApplyAmount(int applyAmount) {
-				this.applyAmount = applyAmount;
-			}
+            public int getApplyAmount() {
+                return applyAmount;
+            }
 
-			public int getApplyObjId() {
-				return applyObjId;
-			}
+            public void setApplyAmount(int applyAmount) {
+                this.applyAmount = applyAmount;
+            }
 
-			public void setApplyObjId(int applyObjId) {
-				this.applyObjId = applyObjId;
-			}
+            public int getApplyObjId() {
+                return applyObjId;
+            }
 
-			public String getApplyImgPath() {
-				return applyImgPath;
-			}
+            public void setApplyObjId(int applyObjId) {
+                this.applyObjId = applyObjId;
+            }
 
-			public void setApplyImgPath(String applyImgPath) {
-				this.applyImgPath = applyImgPath;
-			}
+            public String getApplyImgPath() {
+                return applyImgPath;
+            }
 
-		}
+            public void setApplyImgPath(String applyImgPath) {
+                this.applyImgPath = applyImgPath;
+            }
 
-		public int getMoneyBackState() {
-			return moneyBackState;
-		}
+        }
 
-		public void setMoneyBackState(int moneyBackState) {
-			this.moneyBackState = moneyBackState;
-		}
+        public int getMoneyBackState() {
+            return moneyBackState;
+        }
 
-		public int getDiscountCouponState() {
-			return discountCouponState;
-		}
+        public void setMoneyBackState(int moneyBackState) {
+            this.moneyBackState = moneyBackState;
+        }
 
-		public void setDiscountCouponState(int discountCouponState) {
-			this.discountCouponState = discountCouponState;
-		}
+        public int getDiscountCouponState() {
+            return discountCouponState;
+        }
 
-		public int getCustomerServiceState() {
-			return customerServiceState;
-		}
+        public void setDiscountCouponState(int discountCouponState) {
+            this.discountCouponState = discountCouponState;
+        }
 
-		public int getGold() {
-			return gold;
-		}
+        public int getCustomerServiceState() {
+            return customerServiceState;
+        }
 
-		public void setGold(int gold) {
-			this.gold = gold;
-		}
+        public int getGold() {
+            return gold;
+        }
 
-		public void setGlobal(boolean isGlobal) {
-			this.isGlobal = isGlobal;
-		}
+        public void setGold(int gold) {
+            this.gold = gold;
+        }
 
-		public void setCustomerServiceState(int customerServiceState) {
-			this.customerServiceState = customerServiceState;
-		}
+        public void setGlobal(boolean isGlobal) {
+            this.isGlobal = isGlobal;
+        }
 
-		//
-		public boolean isGlobal;
+        public void setCustomerServiceState(int customerServiceState) {
+            this.customerServiceState = customerServiceState;
+        }
 
-		public int getIsFlag() {
-			return isFlag;
-		}
+        //
+        public boolean isGlobal;
 
-		public void setIsFlag(int isFlag) {
-			this.isFlag = isFlag;
-		}
+        public int getIsFlag() {
+            return isFlag;
+        }
 
-		public String identityId;
+        public void setIsFlag(int isFlag) {
+            this.isFlag = isFlag;
+        }
 
-		public boolean getIsGlobal() {
-			return isGlobal;
-		}
+        public String identityId;
 
-		public void setIsGlobal(boolean isGlobal) {
-			this.isGlobal = isGlobal;
-		}
+        public boolean getIsGlobal() {
+            return isGlobal;
+        }
 
-		public String getIdentityId() {
-			return identityId;
-		}
+        public void setIsGlobal(boolean isGlobal) {
+            this.isGlobal = isGlobal;
+        }
 
-		public void setIdentityId(String identityId) {
-			this.identityId = identityId;
-		}
+        public String getIdentityId() {
+            return identityId;
+        }
 
-		public String getAliasCode() {
-			return aliasCode;
-		}
+        public void setIdentityId(String identityId) {
+            this.identityId = identityId;
+        }
 
-		public void setAliasCode(String aliasCode) {
-			this.aliasCode = aliasCode;
-		}
+        public String getAliasCode() {
+            return aliasCode;
+        }
 
-		public String getOrderId() {
-			return orderId;
-		}
+        public void setAliasCode(String aliasCode) {
+            this.aliasCode = aliasCode;
+        }
 
-		public void setOrderId(String orderId) {
-			this.orderId = orderId;
-		}
+        public String getOrderId() {
+            return orderId;
+        }
 
-		public String getPaySerialNumber() {
-			return paySerialNumber;
-		}
+        public void setOrderId(String orderId) {
+            this.orderId = orderId;
+        }
 
-		public void setPaySerialNumber(String paySerialNumber) {
-			this.paySerialNumber = paySerialNumber;
-		}
+        public String getPaySerialNumber() {
+            return paySerialNumber;
+        }
 
-		public String getCreateTime() {
-			return createTime;
-		}
+        public void setPaySerialNumber(String paySerialNumber) {
+            this.paySerialNumber = paySerialNumber;
+        }
 
-		public void setCreateTime(String createTime) {
-			this.createTime = createTime;
-		}
+        public String getCreateTime() {
+            return createTime;
+        }
 
-		public String getAcceptName() {
-			return acceptName;
-		}
+        public void setCreateTime(String createTime) {
+            this.createTime = createTime;
+        }
 
-		public void setAcceptName(String acceptName) {
-			this.acceptName = acceptName;
-		}
+        public String getAcceptName() {
+            return acceptName;
+        }
 
-		public String getOrder_states() {
-			return order_states;
-		}
+        public void setAcceptName(String acceptName) {
+            this.acceptName = acceptName;
+        }
 
-		public void setOrder_states(String order_states) {
-			this.order_states = order_states;
-		}
+        public String getOrder_states() {
+            return order_states;
+        }
 
-		public String getNeedPay() {
-			return needPay;
-		}
+        public void setOrder_states(String order_states) {
+            this.order_states = order_states;
+        }
 
-		public void setNeedPay(String needPay) {
-			this.needPay = needPay;
-		}
+        public String getNeedPay() {
+            return needPay;
+        }
 
-		public String getGivePoints() {
-			return givePoints;
-		}
+        public void setNeedPay(String needPay) {
+            this.needPay = needPay;
+        }
 
-		public void setGivePoints(String givePoints) {
-			this.givePoints = givePoints;
-		}
+        public String getGivePoints() {
+            return givePoints;
+        }
 
-		public String getOrderStateId() {
-			return orderStateId;
-		}
+        public void setGivePoints(String givePoints) {
+            this.givePoints = givePoints;
+        }
 
-		public void setOrderStateId(String orderStateId) {
-			this.orderStateId = orderStateId;
-		}
+        public String getOrderStateId() {
+            return orderStateId;
+        }
 
-		public String getDespatchOrderNo() {
-			return despatchOrderNo;
-		}
+        public void setOrderStateId(String orderStateId) {
+            this.orderStateId = orderStateId;
+        }
 
-		public void setDespatchOrderNo(String despatchOrderNo) {
-			this.despatchOrderNo = despatchOrderNo;
-		}
+        public String getDespatchOrderNo() {
+            return despatchOrderNo;
+        }
 
-		public String getDeliveryerNameCh() {
-			return deliveryerNameCh;
-		}
+        public void setDespatchOrderNo(String despatchOrderNo) {
+            this.despatchOrderNo = despatchOrderNo;
+        }
 
-		public void setDeliveryerNameCh(String deliveryerNameCh) {
-			this.deliveryerNameCh = deliveryerNameCh;
-		}
+        public String getDeliveryerNameCh() {
+            return deliveryerNameCh;
+        }
 
-		public String getDeliveryerNameEn() {
-			return deliveryerNameEn;
-		}
+        public void setDeliveryerNameCh(String deliveryerNameCh) {
+            this.deliveryerNameCh = deliveryerNameCh;
+        }
 
-		public void setDeliveryerNameEn(String deliveryerNameEn) {
-			this.deliveryerNameEn = deliveryerNameEn;
-		}
+        public String getDeliveryerNameEn() {
+            return deliveryerNameEn;
+        }
 
-		public String getDeliveryUrl() {
-			return deliveryUrl;
-		}
+        public void setDeliveryerNameEn(String deliveryerNameEn) {
+            this.deliveryerNameEn = deliveryerNameEn;
+        }
 
-		public void setDeliveryUrl(String deliveryUrl) {
-			this.deliveryUrl = deliveryUrl;
-		}
+        public String getDeliveryUrl() {
+            return deliveryUrl;
+        }
 
-		public ArrayList<Delivery> getDeliveryList() {
-			return deliveryList;
-		}
+        public void setDeliveryUrl(String deliveryUrl) {
+            this.deliveryUrl = deliveryUrl;
+        }
 
-		public void setDeliveryList(ArrayList<Delivery> deliveryList) {
-			this.deliveryList = deliveryList;
-		}
+        public ArrayList<Delivery> getDeliveryList() {
+            return deliveryList;
+        }
 
-		public String getPayModeId() {
-			return payModeId;
-		}
+        public void setDeliveryList(ArrayList<Delivery> deliveryList) {
+            this.deliveryList = deliveryList;
+        }
 
-		public void setPayModeId(String payModeId) {
-			this.payModeId = payModeId;
-		}
+        public String getPayModeId() {
+            return payModeId;
+        }
 
-		public String getEmoneyPay() {
-			return emoneyPay;
-		}
+        public void setPayModeId(String payModeId) {
+            this.payModeId = payModeId;
+        }
 
-		public void setEmoneyPay(String emoneyPay) {
-			this.emoneyPay = emoneyPay;
-		}
+        public String getEmoneyPay() {
+            return emoneyPay;
+        }
 
-		public String getTotalPay() {
-			return totalPay;
-		}
+        public void setEmoneyPay(String emoneyPay) {
+            this.emoneyPay = emoneyPay;
+        }
 
-		public void setTotalPay(String totalPay) {
-			this.totalPay = totalPay;
-		}
+        public String getTotalPay() {
+            return totalPay;
+        }
 
-		public String getOrderAmt() {
-			return orderAmt;
-		}
+        public void setTotalPay(String totalPay) {
+            this.totalPay = totalPay;
+        }
 
-		public void setOrderAmt(String orderAmt) {
-			this.orderAmt = orderAmt;
-		}
+        public String getOrderAmt() {
+            return orderAmt;
+        }
 
-		public String getOrderTime() {
-			return orderTime;
-		}
+        public void setOrderAmt(String orderAmt) {
+            this.orderAmt = orderAmt;
+        }
 
-		public void setOrderTime(String orderTime) {
-			this.orderTime = orderTime;
-		}
+        public String getOrderTime() {
+            return orderTime;
+        }
 
-		public String getMobilePhone() {
-			return mobilePhone;
-		}
+        public void setOrderTime(String orderTime) {
+            this.orderTime = orderTime;
+        }
 
-		public void setMobilePhone(String mobilePhone) {
-			this.mobilePhone = mobilePhone;
-		}
+        public String getMobilePhone() {
+            return mobilePhone;
+        }
 
-		public String getAddress() {
-			return address;
-		}
+        public void setMobilePhone(String mobilePhone) {
+            this.mobilePhone = mobilePhone;
+        }
 
-		public void setAddress(String address) {
-			this.address = address;
-		}
+        public String getAddress() {
+            return address;
+        }
 
-		public String getOrderSign() {
-			return orderSign;
-		}
+        public void setAddress(String address) {
+            this.address = address;
+        }
 
-		public void setOrderSign(String orderSign) {
-			this.orderSign = orderSign;
-		}
+        public String getOrderSign() {
+            return orderSign;
+        }
 
-		public String getMerchantId() {
-			return merchantId;
-		}
+        public void setOrderSign(String orderSign) {
+            this.orderSign = orderSign;
+        }
 
-		public void setMerchantId(String merchantId) {
-			this.merchantId = merchantId;
-		}
+        public String getMerchantId() {
+            return merchantId;
+        }
 
-		public String getFare() {
-			return fare;
-		}
+        public void setMerchantId(String merchantId) {
+            this.merchantId = merchantId;
+        }
 
-		public void setFare(String fare) {
-			this.fare = fare;
-		}
+        public String getFare() {
+            return fare;
+        }
 
-		public String getCouponPay() {
-			return couponPay;
-		}
+        public void setFare(String fare) {
+            this.fare = fare;
+        }
 
-		public void setCouponPay(String couponPay) {
-			this.couponPay = couponPay;
-		}
+        public String getCouponPay() {
+            return couponPay;
+        }
 
-		public String getProductAmt() {
-			return productAmt;
-		}
+        public void setCouponPay(String couponPay) {
+            this.couponPay = couponPay;
+        }
 
-		public void setProductAmt(String productAmt) {
-			this.productAmt = productAmt;
-		}
+        public String getProductAmt() {
+            return productAmt;
+        }
 
-		public String getIsSign() {
-			return isSign;
-		}
+        public void setProductAmt(String productAmt) {
+            this.productAmt = productAmt;
+        }
 
-		public void setIsSign(String isSign) {
-			this.isSign = isSign;
-		}
+        public String getIsSign() {
+            return isSign;
+        }
 
-		public ArrayList<PayInfo> getPayInfoList() {
-			return payInfoList;
-		}
+        public void setIsSign(String isSign) {
+            this.isSign = isSign;
+        }
 
-		public void setPayInfoList(ArrayList<PayInfo> payInfoList) {
-			this.payInfoList = payInfoList;
-		}
+        public ArrayList<PayInfo> getPayInfoList() {
+            return payInfoList;
+        }
 
-		public ArrayList<OrderProduct> getOrderProducts() {
-			return orderProducts;
-		}
+        public void setPayInfoList(ArrayList<PayInfo> payInfoList) {
+            this.payInfoList = payInfoList;
+        }
 
-		public void setOrderProducts(ArrayList<OrderProduct> orderProducts) {
-			this.orderProducts = orderProducts;
-		}
+        public ArrayList<OrderProduct> getOrderProducts() {
+            return orderProducts;
+        }
 
-		public String getShipmentDate() {
-			return shipmentDate;
-		}
+        public void setOrderProducts(ArrayList<OrderProduct> orderProducts) {
+            this.orderProducts = orderProducts;
+        }
 
-		public void setShipmentDate(String shipmentDate) {
-			this.shipmentDate = shipmentDate;
-		}
+        public String getShipmentDate() {
+            return shipmentDate;
+        }
 
-		public int getDelaySignCount() {
-			return delaySignCount;
-		}
+        public void setShipmentDate(String shipmentDate) {
+            this.shipmentDate = shipmentDate;
+        }
 
-		public void setDelaySignCount(int delaySignCount) {
-			this.delaySignCount = delaySignCount;
-		}
+        public int getDelaySignCount() {
+            return delaySignCount;
+        }
 
-	}
-
-	public static class PayInfo implements Serializable {
-		private static final long serialVersionUID = 1L;
-		public String payAmount, payState, payModeId, payModeName;
-
-		//
-		public String getPayAmount() {
-			return payAmount;
-		}
+        public void setDelaySignCount(int delaySignCount) {
+            this.delaySignCount = delaySignCount;
+        }
 
-		public void setPayAmount(String payAmount) {
-			this.payAmount = payAmount;
-		}
+    }
 
-		public String getPayState() {
-			return payState;
-		}
+    public static class PayInfo implements Serializable {
+        private static final long serialVersionUID = 1L;
+        public String payAmount, payState, payModeId, payModeName;
 
-		public void setPayState(String payState) {
-			this.payState = payState;
-		}
+        //
 
-		public String getPayModeId() {
-			return payModeId;
-		}
+        public String getPayAmount() {
+            return payAmount;
+        }
 
-		public void setPayModeId(String payModeId) {
-			this.payModeId = payModeId;
-		}
+        public void setPayAmount(String payAmount) {
+            this.payAmount = payAmount;
+        }
 
-		public String getPayModeName() {
-			return payModeName;
-		}
+        public String getPayState() {
+            return payState;
+        }
 
-		public void setPayModeName(String payModeName) {
-			this.payModeName = payModeName;
-		}
+        public void setPayState(String payState) {
+            this.payState = payState;
+        }
 
-		public static long getSerialversionuid() {
-			return serialVersionUID;
-		}
-	}
+        public String getPayModeId() {
+            return payModeId;
+        }
 
-	/**
-	 * 物流信息
-	 */
-	public static class Delivery implements Serializable {
-		private static final long serialVersionUID = 1L;
-		// 配送时间、配送内容
-		public String time, context;
+        public void setPayModeId(String payModeId) {
+            this.payModeId = payModeId;
+        }
 
-		public String getTime() {
-			return time;
-		}
+        public String getPayModeName() {
+            return payModeName;
+        }
 
-		public void setTime(String time) {
-			this.time = time;
-		}
+        public void setPayModeName(String payModeName) {
+            this.payModeName = payModeName;
+        }
 
-		public String getContext() {
-			return context;
-		}
+        public static long getSerialversionuid() {
+            return serialVersionUID;
+        }
+    }
 
-		public void setContext(String context) {
-			this.context = context;
-		}
-	}
+    /**
+     * 物流信息
+     */
+    public static class Delivery implements Serializable {
+        private static final long serialVersionUID = 1L;
+        // 配送时间、配送内容
+        public String time, context;
 
-	public static class OrderProduct implements Serializable {
-		private static final long serialVersionUID = 1L;
-		public String articleTitle, orderAmount, articleId, articlePrice, articlePicPath, selectAmount, itemId;
-		public String prefix,postfix;
+        public String getTime() {
+            return time;
+        }
 
-		public String getPrefix() {
-			return prefix;
-		}
+        public void setTime(String time) {
+            this.time = time;
+        }
 
-		public void setPrefix(String prefix) {
-			this.prefix = prefix;
-		}
+        public String getContext() {
+            return context;
+        }
 
-		public String getPostfix() {
-			return postfix;
-		}
+        public void setContext(String context) {
+            this.context = context;
+        }
+    }
 
-		public void setPostfix(String postfix) {
-			this.postfix = postfix;
-		}
-
-		public String getArticleTitle() {
-			return articleTitle;
-		}
-
-		public String getItemId() {
-			return itemId;
-		}
-
-		public void setItemId(String itemId) {
-			this.itemId = itemId;
-		}
-
-		public String getSelectAmount() {
-			return selectAmount;
-		}
-
-		public void setSelectAmount(String selectAmount) {
-			this.selectAmount = selectAmount;
-		}
-
-		public void setArticleTitle(String articleTitle) {
-			this.articleTitle = articleTitle;
-		}
-
-		public String getOrderAmount() {
-			return orderAmount;
-		}
-
-		public void setOrderAmount(String orderAmount) {
-			this.orderAmount = orderAmount;
-		}
-
-		public String getArticleId() {
-			return articleId;
-		}
-
-		public void setArticleId(String articleId) {
-			this.articleId = articleId;
-		}
-
-		public String getArticlePrice() {
-			return articlePrice;
-		}
-
-		public void setArticlePrice(String articlePrice) {
-			this.articlePrice = articlePrice;
-		}
-
-		public String getArticlePicPath() {
-			return articlePicPath;
-		}
-
-		public void setArticlePicPath(String articlePicPath) {
-			this.articlePicPath = articlePicPath;
-		}
-
-		public static long getSerialversionuid() {
-			return serialVersionUID;
-		}
-	}
-
-	// /////////////////////////////////////
-
-	public ArrayList<OrderBean> getUserOrders() {
-		return userOrders;
-	}
-
-	public void setUserOrders(ArrayList<OrderBean> userOrders) {
-		this.userOrders = userOrders;
-	}
-
-	public int getCurrentPage() {
-		return currentPage;
-	}
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
-	}
-
-	public int getTotalPages() {
-		return totalPages;
-	}
-
-	public void setTotalPages(int totalPage) {
-		this.totalPages = totalPage;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
+    public static class OrderProduct implements Serializable {
+        private static final long serialVersionUID = 1L;
+        public String articleTitle, orderAmount, articleId, articlePrice, articlePicPath, selectAmount, itemId;
+        public String prefix, postfix;
+
+        public String getPrefix() {
+            return prefix;
+        }
+
+        public void setPrefix(String prefix) {
+            this.prefix = prefix;
+        }
+
+        public String getPostfix() {
+            return postfix;
+        }
+
+        public void setPostfix(String postfix) {
+            this.postfix = postfix;
+        }
+
+        public String getArticleTitle() {
+            return articleTitle;
+        }
+
+        public String getItemId() {
+            return itemId;
+        }
+
+        public void setItemId(String itemId) {
+            this.itemId = itemId;
+        }
+
+        public String getSelectAmount() {
+            return selectAmount;
+        }
+
+        public void setSelectAmount(String selectAmount) {
+            this.selectAmount = selectAmount;
+        }
+
+        public void setArticleTitle(String articleTitle) {
+            this.articleTitle = articleTitle;
+        }
+
+        public String getOrderAmount() {
+            return orderAmount;
+        }
+
+        public void setOrderAmount(String orderAmount) {
+            this.orderAmount = orderAmount;
+        }
+
+        public String getArticleId() {
+            return articleId;
+        }
+
+        public void setArticleId(String articleId) {
+            this.articleId = articleId;
+        }
+
+        public String getArticlePrice() {
+            return articlePrice;
+        }
+
+        public void setArticlePrice(String articlePrice) {
+            this.articlePrice = articlePrice;
+        }
+
+        public String getArticlePicPath() {
+            return articlePicPath;
+        }
+
+        public void setArticlePicPath(String articlePicPath) {
+            this.articlePicPath = articlePicPath;
+        }
+
+        public static long getSerialversionuid() {
+            return serialVersionUID;
+        }
+    }
+
+    // /////////////////////////////////////
+
+    public ArrayList<OrderBean> getUserOrders() {
+        return userOrders;
+    }
+
+    public void setUserOrders(ArrayList<OrderBean> userOrders) {
+        this.userOrders = userOrders;
+    }
+
+    @Bindable
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+//		notifyPropertyChanged(BR.currentPage);
+    }
+
+    public int getTotalPages() {
+        return totalPages;
+    }
+
+    public void setTotalPages(int totalPage) {
+        this.totalPages = totalPage;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
 
 }

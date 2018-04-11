@@ -2,14 +2,22 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-      <!--  <variable
-            name=""
-            type=""/>-->
+        <variable
+            name="adapter"
+            type="android.widget.BaseAdapter"/>
     </data>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-        </LinearLayout>
-  
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#bbccaa"
+            android:scrollbars="vertical"/>
+    </LinearLayout>
+
 </layout>

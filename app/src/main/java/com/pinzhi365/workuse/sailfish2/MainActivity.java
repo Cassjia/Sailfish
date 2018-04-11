@@ -1,23 +1,24 @@
 package com.pinzhi365.workuse.sailfish2;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
 
-import com.pinzhi365.workuse.sailfish.databinding.ActivityMainBinding;
+
 
 public class MainActivity extends BaseActivity {
-    private ActivityMainBinding mainBinding;
+//    private ActivityMainBinding mainBinding;
+//
+
 //    public final ProgressBar loading_progressBar=null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mainBinding = DataBindingUtil.setContentView(this, R.layout
-                .activity_main);
-
-        mainBinding.setFirstName("开始");
+//        mainBinding = DataBindingUtil.setContentView(this, R.layout
+//                .activity_main);
+//
+//        mainBinding.setFirstName("开始");
     }
 
     /**
@@ -34,8 +35,8 @@ public class MainActivity extends BaseActivity {
         super.onLoadSucess(data);
 
 //        (mainBinding.loadingProgressBar).setVisibility(View.GONE);
-        mainBinding.setFirstName(data);
-        mainBinding.setFlag(0);
+//        mainBinding.setFirstName(data);
+//        mainBinding.setFlag(0);
     }
 
     @Override
@@ -43,6 +44,6 @@ public class MainActivity extends BaseActivity {
         super.statLoading();
 
 //        (mainBinding.loadingProgressBar).setVisibility(View.VISIBLE);
-        mainBinding.setFlag(1);
+//        mainBinding.setFlag(1);
     }
 }
