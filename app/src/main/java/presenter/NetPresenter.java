@@ -6,8 +6,9 @@ import android.os.Message;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.pinzhi365.workuse.sailfish2.BasePresenter;
 
-import com.pinzhi365.workuse.sailfish.BasePresenter;
+
 import model.CheckInBean;
 
 public class NetPresenter extends BasePresenter {
@@ -21,7 +22,7 @@ public class NetPresenter extends BasePresenter {
         super(tag);
     }
 
-    public NetPresenter(String tag,Handler handler){
+    public NetPresenter(String tag, Handler handler){
         super(tag);
 
 

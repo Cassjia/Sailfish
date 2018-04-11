@@ -1,4 +1,4 @@
-package com.pinzhi365.workuse.sailfish;
+package com.pinzhi365.workuse.sailfish2;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +10,7 @@ import java.lang.ref.WeakReference;
 import base.BaseProxy;
 import base.BaseViewUpdate;
 import presenter.NetPresenter;
+
 
 abstract class BaseActivity extends AppCompatActivity implements BaseViewUpdate {
 

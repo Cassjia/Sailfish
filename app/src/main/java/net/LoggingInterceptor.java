@@ -14,7 +14,7 @@ import okhttp3.Response;
 
 class LoggingInterceptor implements Interceptor {
     @Override
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
 
         long t1 = System.nanoTime();

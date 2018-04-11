@@ -1,4 +1,4 @@
-package com.pinzhi365.workuse.sailfish;
+package com.pinzhi365.workuse.sailfish2;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.pinzhi365.workuse.sailfish", appContext.getPackageName());
+        assertEquals("com.pinzhi365.workuse.sailfish2", appContext.getPackageName());
     }
 }

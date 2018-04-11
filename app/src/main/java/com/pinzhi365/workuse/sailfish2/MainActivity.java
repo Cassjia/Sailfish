@@ -1,4 +1,4 @@
-package com.pinzhi365.workuse.sailfish;
+package com.pinzhi365.workuse.sailfish2;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
