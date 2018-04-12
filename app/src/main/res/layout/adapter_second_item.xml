@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" >
 
     <data>
 
         <variable
             name="orderbean"
             type="model.MemberOrderListBean.OrderBean"/>
-        <variable
+   <!--     <variable
             name="ordermodel"
-            type="model.OrderBeanModel"/>
+            type="model.OrderBeanModel"/>-->
+        <import type="model.OrderBeanModel"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
@@ -60,8 +63,7 @@
             <include
                 android:id="@+id/item_order_product"
                 layout="@layout/item_order_product"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                bind:item="@{orderbean}"/>
         </LinearLayout>
 
         <RelativeLayout
@@ -106,7 +108,7 @@
                 android:layout_toRightOf="@id/order_state_name"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:text="@{ordermodel.orderStatusTo(orderbean.order_states)}"
+                android:text="@{OrderBeanModel.orderStatusTo(orderbean.order_states)}"
                 android:textColor="@color/red"/>
 
             <TextView
@@ -116,7 +118,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp"
                 android:layout_toRightOf="@id/order_state_name"
-                android:text="@{ordermodel.orderPriceTo(orderbean.productAmt,orderbean.couponPay)}"/>
+                android:text="@{OrderBeanModel.orderPriceTo(orderbean.productAmt,orderbean.couponPay)}"/>
 
             <TextView
                 android:id="@+id/textPoints"

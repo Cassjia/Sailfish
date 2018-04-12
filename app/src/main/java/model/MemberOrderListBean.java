@@ -3,8 +3,12 @@ package model;
 import android.database.Observable;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.databinding.BindingAdapter;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -47,7 +51,18 @@ public class MemberOrderListBean extends BaseObservable implements Serializable 
         public String area;// 收货地区名称；
         public String areaPath;// 收货地区path
         private int orderType; //34礼包订单
+        public String url="https://goss2.vcg.com/creative/vcg/800/new/VCG41N945269902.jpg";
 
+
+
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
 
         public int getOrderType() {
             return orderType;
@@ -673,5 +688,7 @@ public class MemberOrderListBean extends BaseObservable implements Serializable 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }
+
+
 
 }

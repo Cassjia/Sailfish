@@ -4,7 +4,7 @@
     <data>
         <variable
             name="adapter"
-            type="android.widget.BaseAdapter"/>
+            type="com.pinzhi365.workuse.sailfish2.SecondAdapter"/>
     </data>
 
     <LinearLayout
@@ -16,7 +16,7 @@
             android:id="@+id/recycler_view_test"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#bbccaa"
+            android:background="#ffffff"
             android:scrollbars="vertical"/>
     </LinearLayout>
 

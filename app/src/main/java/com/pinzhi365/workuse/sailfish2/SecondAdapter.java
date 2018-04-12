@@ -35,7 +35,9 @@ public class SecondAdapter extends RecyclerView.Adapter {
 
         AdapterSecondItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context),
                 R.layout.adapter_second_item, parent, false);
+
         return new OrderBeanViewHolder(binding.getRoot());
+
     }
 
     @Override
