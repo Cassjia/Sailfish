@@ -8,6 +8,10 @@
         <variable
             name="item"
             type="model.MemberOrderListBean.OrderBean"/>
+        <import type="java.util.List"/>
+        <variable
+            name="articlePicPath"
+            type="String"/>
     </data>
 
     <RelativeLayout
@@ -23,7 +27,7 @@
             android:layout_marginRight="10dp"
             android:padding="1dp"
             android:scaleType="fitXY"
-            app:image="@{item.url}"/>
+            app:image="@{articlePicPath}"/>
 
         <TextView
             android:id="@+id/textProductName"

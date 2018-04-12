@@ -35,7 +35,6 @@ public class SecondAdapter extends RecyclerView.Adapter {
 
         AdapterSecondItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context),
                 R.layout.adapter_second_item, parent, false);
-
         return new OrderBeanViewHolder(binding.getRoot());
 
     }
@@ -44,6 +43,9 @@ public class SecondAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         AdapterSecondItemBinding binding = DataBindingUtil.getBinding(holder.itemView);
         binding.setOrderbean(orderBeans.get(position));
+//        orderBeans.get(position).getOrderProducts().get(0).articlePicPathNew.set("https://goss2.vcg.com/creative/vcg/800/new/VCG41N945269902.jpg");
+//        binding.setVariable(BR.orderproduct,orderBeans.get(position).getOrderProducts().get(0).articlePicPathNew.get());
+        binding.setVariable(BR.articlePicPath,orderBeans.get(position).getOrderProducts().get(0).getArticlePicPath());
         binding.executePendingBindings();
     }
 

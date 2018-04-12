@@ -4,6 +4,7 @@ import android.database.Observable;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
+import android.databinding.ObservableField;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
@@ -51,18 +52,8 @@ public class MemberOrderListBean extends BaseObservable implements Serializable 
         public String area;// 收货地区名称；
         public String areaPath;// 收货地区path
         private int orderType; //34礼包订单
-        public String url="https://goss2.vcg.com/creative/vcg/800/new/VCG41N945269902.jpg";
 
 
-
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
 
         public int getOrderType() {
             return orderType;
@@ -572,9 +563,19 @@ public class MemberOrderListBean extends BaseObservable implements Serializable 
     }
 
     public static class OrderProduct implements Serializable {
+        public final ObservableField<String> articlePicPathNew = new ObservableField<>();
         private static final long serialVersionUID = 1L;
-        public String articleTitle, orderAmount, articleId, articlePrice, articlePicPath, selectAmount, itemId;
+        public String articleTitle, orderAmount, articleId,articlePicPath,articlePrice, selectAmount, itemId;
         public String prefix, postfix;
+
+
+        public String getArticlePicPath() {
+            return articlePicPath;
+        }
+
+        public void setArticlePicPath(String articlePicPath) {
+            this.articlePicPath = articlePicPath;
+        }
 
         public String getPrefix() {
             return prefix;
@@ -640,13 +641,6 @@ public class MemberOrderListBean extends BaseObservable implements Serializable 
             this.articlePrice = articlePrice;
         }
 
-        public String getArticlePicPath() {
-            return articlePicPath;
-        }
-
-        public void setArticlePicPath(String articlePicPath) {
-            this.articlePicPath = articlePicPath;
-        }
 
         public static long getSerialversionuid() {
             return serialVersionUID;

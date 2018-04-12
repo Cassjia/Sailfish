@@ -11,9 +11,6 @@ public class GlideUtil {
         Glide.with(imageView.getContext().getApplicationContext()).load(url).into(imageView);
     }
 
-    @BindingAdapter(value ={"bind:imageUrl", "bind:error"},requireAll = false)
-    public static void loadImage(ImageView view, String url, Drawable error) {
-        Glide.with(view.getContext()).load(url).error(error).into(view);
-    }
+
 
 }

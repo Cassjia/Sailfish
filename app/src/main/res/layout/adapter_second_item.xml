@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:bind="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools" >
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="orderbean"
             type="model.MemberOrderListBean.OrderBean"/>
-   <!--     <variable
-            name="ordermodel"
-            type="model.OrderBeanModel"/>-->
+        <!--     <variable
+                 name="ordermodel"
+                 type="model.OrderBeanModel"/>-->
         <import type="model.OrderBeanModel"/>
+
+        <variable
+            name="articlePicPath"
+            type="String"/>
     </data>
 
     <LinearLayout
@@ -63,6 +67,7 @@
             <include
                 android:id="@+id/item_order_product"
                 layout="@layout/item_order_product"
+                bind:articlePicPath="@{articlePicPath}"
                 bind:item="@{orderbean}"/>
         </LinearLayout>
 

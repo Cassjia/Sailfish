@@ -19,14 +19,15 @@ public class SecondActivity extends BaseActivity {
     private final static String url = "https://m2.pinzhi365.com/app/phone/104/execute" +
             ".do?&username=%E6%B5%8B%E8%AF%95%E8%B4%A6%E6%88%B7106&source=android&orderType=33" +
             "&pageSize=5&currentPage=1&type=0&version=3.5.2";
-private  SecondActivityBinding binding;
-private RecyclerView recyclerView;
+    private SecondActivityBinding binding;
+    private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         binding = DataBindingUtil.setContentView(this, R.layout
+        binding = DataBindingUtil.setContentView(this, R.layout
                 .second_activity);
-         recyclerView=binding.recyclerViewTest;
+        recyclerView = binding.recyclerViewTest;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 //        recyclerView.setAdapter(new SecondAdapter(getApplicationContext(),));
@@ -57,15 +58,20 @@ private RecyclerView recyclerView;
     @Override
     public void onLoadSucess(String data) {
         super.onLoadSucess(data);
-        Gson gson=new Gson();
-       MemberOrderListBean orderListBean= gson.fromJson(data, MemberOrderListBean.class);
-//        binding.setAdapter(new SecondAdapter(getApplicationContext(),orderListBean.getUserOrders()));
-        recyclerView.setAdapter(new SecondAdapter(getApplicationContext(),orderListBean.getUserOrders()));
+        Gson gson = new Gson();
+        MemberOrderListBean orderListBean = gson.fromJson(data, MemberOrderListBean.class);
+//        binding.setAdapter(new SecondAdapter(getApplicationContext(),orderListBean
+// .getUserOrders()));
+        for (int j = 0; j < orderListBean.getUserOrders().size(); j++) {
+          orderListBean.getUserOrders().get(j).getOrderProducts().get(0).setArticlePicPath("https://goss2.vcg.com/creative/vcg/800/new/VCG41N945269902.jpg");
+        }
+        recyclerView.setAdapter(new SecondAdapter(getApplicationContext(), orderListBean
+                .getUserOrders()));
     }
 
     @BindingAdapter("bind:image")
-    public static void loadImage(ImageView image, String url){
-        GlideUtil.getImgFromHttp(url,image);
+    public static void loadImage(ImageView image, String url) {
+        GlideUtil.getImgFromHttp(url, image);
     }
 
 }
