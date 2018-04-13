@@ -16,6 +16,13 @@
         <variable
             name="articlePicPath"
             type="String"/>
+        <variable
+            name="price"
+            type="String"/>
+
+        <variable
+            name="amount"
+            type="String"/>
     </data>
 
     <LinearLayout
@@ -68,7 +75,8 @@
                 android:id="@+id/item_order_product"
                 layout="@layout/item_order_product"
                 bind:articlePicPath="@{articlePicPath}"
-                bind:item="@{orderbean}"/>
+                bind:price="@{price}"
+                bind:amount="@{amount}"/>
         </LinearLayout>
 
         <RelativeLayout
@@ -153,6 +161,7 @@
                     android:paddingRight="10dip"
                     android:text="查看物流"
                     android:textColor="@color/red"
+                    android:onClick="@{orderbean.clickDelivery}"
                     android:textSize="14dp"
                     android:visibility="visible"/>
 
@@ -165,6 +174,7 @@
                     android:paddingLeft="10dip"
                     android:paddingRight="10dip"
                     android:text="删除订单"
+                    android:onClick="@{orderbean.clickDelete}"
                     android:textColor="@color/red"
                     android:textSize="14dp"
                     android:visibility="visible"/>

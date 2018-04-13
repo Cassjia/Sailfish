@@ -6,12 +6,17 @@
     <data>
 
         <variable
-            name="item"
-            type="model.MemberOrderListBean.OrderBean"/>
-        <import type="java.util.List"/>
+            name="price"
+            type="String"/>
+
+        <variable
+            name="amount"
+            type="String"/>
+
         <variable
             name="articlePicPath"
             type="String"/>
+
     </data>
 
     <RelativeLayout
@@ -69,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text="@{item.orderAmt}"
+                android:text="@{price}"
                 android:textColor="@color/red"/>
         </LinearLayout>
 
@@ -91,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="@{item.orderAmt}"/>
+                android:text="@{amount}"/>
         </LinearLayout>
 
         <ImageView

@@ -6,7 +6,9 @@ import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableField;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -30,9 +32,9 @@ public class MemberOrderListBean extends BaseObservable implements Serializable 
         public String orderId; // 内部订单号
         public String paySerialNumber;// 第三方支付订单流水号
         public String createTime, acceptName, order_states, needPay, givePoints, orderStateId,
-				despatchOrderNo;
+                despatchOrderNo;
         public String deliveryerNameCh, deliveryerNameEn, deliveryUrl, payModeId, emoneyPay,
-				totalPay, orderAmt;
+                totalPay, orderAmt;
         public String orderTime, mobilePhone, address, orderSign, merchantId, fare;
         public String couponPay;// 优惠金额总计
         public String productAmt;// 商品金额总计
@@ -52,8 +54,15 @@ public class MemberOrderListBean extends BaseObservable implements Serializable 
         public String area;// 收货地区名称；
         public String areaPath;// 收货地区path
         private int orderType; //34礼包订单
+        private int position;//对应列表中的位置
 
+        public int getPosition() {
+            return position;
+        }
 
+        public void setPosition(int position) {
+            this.position = position;
+        }
 
         public int getOrderType() {
             return orderType;
@@ -492,6 +501,16 @@ public class MemberOrderListBean extends BaseObservable implements Serializable 
             this.delaySignCount = delaySignCount;
         }
 
+        public void clickDelivery(View view) {
+
+            Toast.makeText(view.getContext(), position + "在查看物流！", Toast.LENGTH_SHORT).show();
+        }
+
+        public void clickDelete(View view) {
+            Toast.makeText(view.getContext(), position + "在点击删除！", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public static class PayInfo implements Serializable {
@@ -565,7 +584,8 @@ public class MemberOrderListBean extends BaseObservable implements Serializable 
     public static class OrderProduct implements Serializable {
         public final ObservableField<String> articlePicPathNew = new ObservableField<>();
         private static final long serialVersionUID = 1L;
-        public String articleTitle, orderAmount, articleId,articlePicPath,articlePrice, selectAmount, itemId;
+        public String articleTitle, orderAmount, articleId, articlePicPath, articlePrice,
+                selectAmount, itemId;
         public String prefix, postfix;
 
 
@@ -682,7 +702,6 @@ public class MemberOrderListBean extends BaseObservable implements Serializable 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }
-
 
 
 }

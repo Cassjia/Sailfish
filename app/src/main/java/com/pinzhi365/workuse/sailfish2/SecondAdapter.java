@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.pinzhi365.workuse.sailfish2.databinding.AdapterSecondItemBinding;
 
@@ -43,15 +44,25 @@ public class SecondAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         AdapterSecondItemBinding binding = DataBindingUtil.getBinding(holder.itemView);
         binding.setOrderbean(orderBeans.get(position));
-//        orderBeans.get(position).getOrderProducts().get(0).articlePicPathNew.set("https://goss2.vcg.com/creative/vcg/800/new/VCG41N945269902.jpg");
-//        binding.setVariable(BR.orderproduct,orderBeans.get(position).getOrderProducts().get(0).articlePicPathNew.get());
-        binding.setVariable(BR.articlePicPath,orderBeans.get(position).getOrderProducts().get(0).getArticlePicPath());
+//        orderBeans.get(position).getOrderProducts().get(0).articlePicPathNew.set
+// ("https://goss2.vcg.com/creative/vcg/800/new/VCG41N945269902.jpg");
+//        binding.setVariable(BR.orderproduct,orderBeans.get(position).getOrderProducts().get(0)
+// .articlePicPathNew.get());
+//        binding.setVariable(BR.articlePicPath,orderBeans.get(position).getOrderProducts().get
+// (0).getArticlePicPath());
+        orderBeans.get(position).setPosition(position);
+        binding.setArticlePicPath(orderBeans.get(position).getOrderProducts().get(0)
+                .getArticlePicPath());
+        binding.setPrice(orderBeans.get(position).getOrderProducts().get(0).getArticlePrice());
+        binding.setAmount(orderBeans.get(position).getOrderProducts().get(0).getOrderAmount());
         binding.executePendingBindings();
     }
 
-    static class OrderBeanViewHolder extends RecyclerView.ViewHolder {
-        public OrderBeanViewHolder(View itemView) {
+    private static class OrderBeanViewHolder extends RecyclerView.ViewHolder {
+        private OrderBeanViewHolder(View itemView) {
             super(itemView);
         }
     }
+
+
 }

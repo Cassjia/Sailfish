@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.pinzhi365.workuse.sailfish2.databinding.SecondActivityBinding;
@@ -63,7 +65,8 @@ public class SecondActivity extends BaseActivity {
 //        binding.setAdapter(new SecondAdapter(getApplicationContext(),orderListBean
 // .getUserOrders()));
         for (int j = 0; j < orderListBean.getUserOrders().size(); j++) {
-          orderListBean.getUserOrders().get(j).getOrderProducts().get(0).setArticlePicPath("https://goss2.vcg.com/creative/vcg/800/new/VCG41N945269902.jpg");
+            orderListBean.getUserOrders().get(j).getOrderProducts().get(0).setArticlePicPath
+                    ("https://goss2.vcg.com/creative/vcg/800/new/VCG41N945269902.jpg");
         }
         recyclerView.setAdapter(new SecondAdapter(getApplicationContext(), orderListBean
                 .getUserOrders()));
@@ -73,5 +76,7 @@ public class SecondActivity extends BaseActivity {
     public static void loadImage(ImageView image, String url) {
         GlideUtil.getImgFromHttp(url, image);
     }
+
+
 
 }
